@@ -41,46 +41,48 @@ class _ContactScreenState extends State<ContactScreen> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          CustomTextField(
-            text: "Enter Your Name here",
-            icon: const Icon(
-              CupertinoIcons.pen,
-              size: 25,
-              color: Color(0xFF2194EF),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomTextField(
+              text: "Enter Your Name here",
+              icon: const Icon(
+                CupertinoIcons.pen,
+                size: 25,
+                color: Color(0xFF2194EF),
+              ),
+              textEditingController: myName,
             ),
-            textEditingController: myName,
-          ),
-          CustomTextField(
-            text: "Enter Your Number here",
-            icon: const Icon(
-              Icons.phone,
-              size: 25,
-              color: Color(0xFF2194EF),
+            CustomTextField(
+              text: "Enter Your Number here",
+              icon: const Icon(
+                Icons.phone,
+                size: 25,
+                color: Color(0xFF2194EF),
+              ),
+              textEditingController: myPhone,
             ),
-            textEditingController: myPhone,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomButton(
-                    title: "Add",
-                    color: const Color(0xFF2194EF),
-                    onClick: onAddClicked),
-                CustomButton(
-                    title: "Delete",
-                    color: const Color(0xFFFD5252),
-                    onClick: onDeleteClicked),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButton(
+                      title: "Add",
+                      color: const Color(0xFF2194EF),
+                      onClick: onAddClicked),
+                  CustomButton(
+                      title: "Delete",
+                      color: const Color(0xFFFD5252),
+                      onClick: onDeleteClicked),
+                ],
+              ),
             ),
-          ),
-          ContactWidget(contact: contacts[0]),
-          ContactWidget(contact: contacts[1]),
-          ContactWidget(contact: contacts[2]),
-        ],
+            ContactWidget(contact: contacts[0]),
+            ContactWidget(contact: contacts[1]),
+            ContactWidget(contact: contacts[2]),
+          ],
+        ),
       ),
     );
   }
